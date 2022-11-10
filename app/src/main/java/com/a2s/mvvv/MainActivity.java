@@ -2,7 +2,10 @@ package com.a2s.mvvv;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -18,33 +21,41 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        ListView mylistView = findViewById(R.id.listViewHeroes);
-
-        getHeroes(mylistView);
+        setContentView(R.layout.level_list);
+        ListView mylistView = findViewById(R.id.listViewLevel);
+        mylistView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //Toast.makeText(getApplicationContext(), "position" + String.valueOf(id), Toast.LENGTH_SHORT).show();
+                Intent myIntent = new Intent(view.getContext(), LayoutLevelList.class);
+                myIntent.putExtra("firstKeyName","FirstKeyValue");
+                myIntent.putExtra("secondKeyName","SecondKeyValue");
+                startActivity(myIntent);
+            }
+        });
+        getLevels(mylistView);
     }
 
-    private void getHeroes(ListView listView) {
-        Call<List<Enonce>> call = RetrofitClient.getInstance().getMyApi().getEnonce();
-        call.enqueue(new Callback<List<Enonce>>() {
+
+
+    private void getLevels(ListView listView) {
+        Call<List<Level>> call = RetrofitClient.getInstance().getMyApi().getAllLevel();
+        call.enqueue(new Callback<List<Level>>() {
             @Override
-            public void onResponse(Call<List<Enonce>> call, Response<List<Enonce>> response) {
-                List<Enonce> heroList = response.body();
-                String[] heroes = new String[heroList.size()];
-                for (int i = 0; i < heroList.size(); i++) {
-                    heroes[i] = heroList.get(i).getTitre();
+            public void onResponse(Call<List<Level>> call, Response<List<Level>> response) {
+                List<Level> LevelList = response.body();
+                String[] levelstr = new String[LevelList.size()];
+                for (int i = 0; i < LevelList.size(); i++) {
+                    levelstr[i] = LevelList.get(i).getTitre();
                 }
-                listView.setAdapter(new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, heroes));
+                listView.setAdapter(new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, levelstr));
             }
 
             @Override
-            public void onFailure(Call<List<Enonce>> call, Throwable t) {
+            public void onFailure(Call<List<Level>> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
-
-
         });
     }
 }
