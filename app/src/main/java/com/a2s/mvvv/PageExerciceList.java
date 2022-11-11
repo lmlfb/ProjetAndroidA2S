@@ -2,6 +2,7 @@ package com.a2s.mvvv;
 
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -15,19 +16,25 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class LayoutLevelList extends AppCompatActivity {
+public class PageExerciceList extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.exo_list);
         ListView mylistView = findViewById(R.id.listViewLevel);
-        getEnonce(mylistView);
-        Toast.makeText(getApplicationContext(), "We are moved to second Activity",Toast.LENGTH_LONG).show();
+
+        Intent intent = getIntent();
+        int selectedExoLvl = Integer.valueOf(intent.getStringExtra("selectedExoLvl"));
+        Toast.makeText(getApplicationContext(), String.valueOf(selectedExoLvl),Toast.LENGTH_LONG).show();
+        getEnonce(mylistView, selectedExoLvl);
+
+
+
     }
 
-    private void getEnonce(ListView listView) {
-        Call<List<Enonce>> call = RetrofitClient.getInstance().getMyApi().getAllEnonce();
+    private void getEnonce(ListView listView, int selectedExoLvl) {
+        Call<List<Enonce>> call = RetrofitClient.getInstance().getMyApi().getSelectedLvl(selectedExoLvl);
         call.enqueue(new Callback<List<Enonce>>() {
             @Override
             public void onResponse(Call<List<Enonce>> call, Response<List<Enonce>> response) {

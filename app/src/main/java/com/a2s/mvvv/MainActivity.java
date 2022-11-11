@@ -23,16 +23,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.level_list);
         ListView mylistView = findViewById(R.id.listViewLevel);
-        mylistView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Toast.makeText(getApplicationContext(), "position" + String.valueOf(id), Toast.LENGTH_SHORT).show();
-                Intent myIntent = new Intent(view.getContext(), LayoutLevelList.class);
-                myIntent.putExtra("firstKeyName","FirstKeyValue");
-                myIntent.putExtra("secondKeyName","SecondKeyValue");
-                startActivity(myIntent);
-            }
-        });
+
         getLevels(mylistView);
     }
 
@@ -49,6 +40,16 @@ public class MainActivity extends AppCompatActivity {
                     levelstr[i] = LevelList.get(i).getTitre();
                 }
                 listView.setAdapter(new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, levelstr));
+
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        //Toast.makeText(getApplicationContext(), "position" + String.valueOf(id), Toast.LENGTH_SHORT).show();
+                        Intent myIntent = new Intent(view.getContext(), PageExerciceList.class);
+                        myIntent.putExtra("selectedExoLvl",String.valueOf(LevelList.get(position).getexoLvl()));
+                        startActivity(myIntent);
+                    }
+                });
             }
 
             @Override
