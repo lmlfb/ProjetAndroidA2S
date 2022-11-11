@@ -1,6 +1,8 @@
 package com.a2s.mvvv;
 
-public class Enonce {
+import java.io.Serializable;
+
+public class Enonce implements Serializable {
 
         private Integer id;
         private String titre;

@@ -4,6 +4,8 @@ package com.a2s.mvvv;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -41,9 +43,20 @@ public class PageExerciceList extends AppCompatActivity {
                 List<Enonce> Enoncelist = response.body();
                 String[] enonceStr = new String[Enoncelist.size()];
                 for (int i = 0; i < Enoncelist.size(); i++) {
-                    enonceStr[i] = Enoncelist.get(i).getTitre();
+                    enonceStr[i] = String.valueOf(Enoncelist.get(i).getTitre());
                 }
                 listView.setAdapter(new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, enonceStr));
+
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        //Toast.makeText(getApplicationContext(), "position" + String.valueOf(id), Toast.LENGTH_SHORT).show();
+                        Intent myIntent = new Intent(view.getContext(), PageOnceEnonce.class);
+                        myIntent.putExtra("selected",String.valueOf(Enoncelist.get(position).getTitre()));
+
+                        startActivity(myIntent);
+                    }
+                });
             }
 
             @Override

@@ -23,6 +23,9 @@
             android:name=".PageExerciceList"
              />
         <activity
+            android:name=".PageOnceEnonce"
+            />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
 
