@@ -15,7 +15,6 @@ public interface Api {
     @GET("get_one_question_by_id.php")
     Call<List<Enonce>> getSelectedLvlById(@Query("id") int selectedExoLvl);
 
-
     @GET("get_question_by_level.php")
     Call<List<Enonce>> getSelectedLvl(@Query("lvl") int selectedExoLvl);
 

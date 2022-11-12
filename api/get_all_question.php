@@ -11,8 +11,12 @@ $return_arr = array();
 
 if ($result = mysqli_query( $base, $sql )){
     while ($row = mysqli_fetch_assoc($result)) {
-    $row_array['id'] = $row['id'];
-    $row_array['titre'] = $row['titre'];
+      $row_array['id'] = $row['id'];
+      $row_array['titre'] = $row['titre'];
+      $row_array['question'] = $row['question'];
+      $row_array['array'] = $row['array'];
+      $row_array['exoNb'] = $row['exoNb'];
+      $row_array['exoLvl'] = $row['exoLvl'];
 
 
     array_push($return_arr,$row_array);

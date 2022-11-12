@@ -30,11 +30,7 @@ public class PageExerciceList extends AppCompatActivity {
         int selectedExoLvl = Integer.valueOf(intent.getStringExtra("selectedExoLvl"));
         Toast.makeText(getApplicationContext(), String.valueOf(selectedExoLvl),Toast.LENGTH_LONG).show();
         getEnonce(mylistView, selectedExoLvl);
-
-
-
     }
-
     private void getEnonce(ListView listView, int selectedExoLvl) {
         Call<List<Enonce>> call = RetrofitClient.getInstance().getMyApi().getSelectedLvl(selectedExoLvl);
         call.enqueue(new Callback<List<Enonce>>() {
@@ -52,20 +48,15 @@ public class PageExerciceList extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         //Toast.makeText(getApplicationContext(), "position" + String.valueOf(id), Toast.LENGTH_SHORT).show();
                         Intent myIntent = new Intent(view.getContext(), PageOnceEnonce.class);
-                        myIntent.putExtra("selected",String.valueOf(Enoncelist.get(position).getTitre()));
-
+                        myIntent.putExtra("selected",String.valueOf(Enoncelist.get(position).getId()));
                         startActivity(myIntent);
                     }
                 });
             }
-
             @Override
             public void onFailure(Call<List<Enonce>> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
-
             }
-
-
         });
     }
 }

@@ -41,8 +41,8 @@ $result = $stmt->execute();*/
 //---------------
 
 $lvl = -1;
-if (isset($_GET["lvl"])) {
-  $lvl = $_GET["lvl"];
+if (isset($_GET["id"])) {
+  $lvl = $_GET["id"];
 }
 else{
   echo("please provide a value for lvl");
@@ -61,8 +61,12 @@ $return_arr = array();
 
 
     while ($row = mysqli_fetch_assoc($result)) {
-    $row_array['exofLvl'] = $row['exoLvl'];
+    $row_array['id'] = $row['id'];
     $row_array['titre'] = $row['titre'];
+    $row_array['question'] = $row['question'];
+    $row_array['array'] = $row['array'];
+    $row_array['exoNb'] = $row['exoNb'];
+    $row_array['exoLvl'] = $row['exoLvl'];
 
     array_push($return_arr,$row_array);
    }

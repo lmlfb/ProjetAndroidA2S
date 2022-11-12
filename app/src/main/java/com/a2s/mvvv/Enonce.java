@@ -21,7 +21,7 @@ public class Enonce implements Serializable {
         }
 
         public Integer getId() {
-            return id;
+            return this.id;
         }
         public void setId(Integer id) {
             this.id = id;

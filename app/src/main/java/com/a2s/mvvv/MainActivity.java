@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
                 List<Level> LevelList = response.body();
                 String[] levelstr = new String[LevelList.size()];
                 for (int i = 0; i < LevelList.size(); i++) {
-                    levelstr[i] = LevelList.get(i).getTitre();
+                    levelstr[i] = String.valueOf(LevelList.get(i).getTitre());
                 }
                 listView.setAdapter(new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, levelstr));
 

@@ -22,25 +22,23 @@ public class PageOnceEnonce extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.one_exercice);
         Intent intent = getIntent();
-        String selectedExoLvl = intent.getStringExtra("selected");
+        int selectedExoLvl = Integer.valueOf(intent.getStringExtra("selected"));
         TextView exo_titre = findViewById(R.id.exo_titre);
-        exo_titre.setText(String.valueOf(selectedExoLvl));
-
-
-     Toast.makeText(getApplicationContext(), String.valueOf(selectedExoLvl),Toast.LENGTH_LONG).show();
-       /* getEnonce(exo_titre, selectedExoLvl);*/
+        //exo_titre.setText(String.valueOf(selectedExoLvl));
+        // Toast.makeText(getApplicationContext(), String.valueOf(selectedExoLvl),Toast.LENGTH_LONG).show();
+         getEnonce(exo_titre, selectedExoLvl);
 
 
 
     }
 
     private void getEnonce(TextView exo_titre, int selectedExoLvl) {
-        Call<List<Enonce>> call = RetrofitClient.getInstance().getMyApi().getSelectedLvl(selectedExoLvl);
+        Call<List<Enonce>> call = RetrofitClient.getInstance().getMyApi().getSelectedLvlById(selectedExoLvl);
         call.enqueue(new Callback<List<Enonce>>() {
             @Override
             public void onResponse(Call<List<Enonce>> call, Response<List<Enonce>> response) {
                 List<Enonce> Enoncelist = response.body();
-                exo_titre.setText(Enoncelist.get(selectedExoLvl).getTitre());
+                exo_titre.setText(Enoncelist.get(0).getTitre());
   }
 
             @Override
