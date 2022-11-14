@@ -9,16 +9,31 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
         android:text="Submit"
-        tools:layout_editor_absoluteX="160dp"
-        tools:layout_editor_absoluteY="629dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/exo_titre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="44dp"
         android:text="Titre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TableLayout
+        android:id="@+id/table_exo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="200dp"
+        android:layout_weight="1"
+        android:stretchColumns="1"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -27,20 +42,25 @@
         android:id="@+id/exo_question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:text="Question"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/exo_titre" />
 
-    <TextView
-        android:id="@+id/exo_response"
-        android:layout_width="313dp"
-        android:layout_height="108dp"
-        android:text="reponse"
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="355dp"
+        android:layout_height="189dp"
+        android:backgroundTint="#00FFFFFF"
+        android:ems="10"
+        android:hint="Réponse"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="436dp" />
+        app:layout_constraintTop_toBottomOf="@+id/exo_question"
+        app:layout_constraintVertical_bias="0.877" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

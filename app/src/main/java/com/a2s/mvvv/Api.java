@@ -20,4 +20,7 @@ public interface Api {
 
     @GET("get_all_level.php")
     Call<List<Level>> getAllLevel();
+
+    @GET("get_all_car.php")
+    Call<List<voiture>> getCars();
 }
