@@ -63,4 +63,12 @@
         app:layout_constraintTop_toBottomOf="@+id/exo_question"
         app:layout_constraintVertical_bias="0.877" />
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="23dp"
+        tools:layout_editor_absoluteY="34dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
