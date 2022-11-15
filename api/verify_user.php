@@ -2,6 +2,14 @@
 
 //error_reporting(E_ALL);
 
+
+$login = "default";
+$mdp = "default";
+if (isset($_POST["login"]) && isset($_POST["mdp"]) ) {
+  $login = $_POST["login"];
+  $mdp = $_POST["mdp"];
+
+
 try {
 function utf8ize($d) {
   if (is_array($d)) 
@@ -22,51 +30,23 @@ $servername = "apiapkslm.mysql.db";
 $username = "apiapkslm";
 $password = "MWcYrxMarR9vdU9NGmf";
 $dbname = "apiapkslm";
-/*
-$servername = "127.0.0.1";
-$username = "root";
-$password = "";
-$dbname = "androidapk";
-
-$mysqli  = new mysqli($servername, $username, $password, $dbname);
 
 
-$selected_level = $_GET["lvl"];
 
-$selected_level = 1;
-$stmt = $mysqli->prepare("SELECT * FROM enonce WHERE exoLvl=?");
-$stmt->bind_param("i", $selected_level);
-$result = $stmt->execute();*/
 
-//---------------
-
-$lvl = -1;
-if (isset($_GET["id"])) {
-  $lvl = $_GET["id"];
-}
-else{
-  echo("please provide a value for lvl");
-}
 
 
 $base  = new mysqli($servername, $username, $password, $dbname);
-$stmt = $base->prepare("SELECT * FROM enonce WHERE id=?");
-$stmt->bind_param("i", $lvl);
+$stmt = $base->prepare("SELECT COUNT(id) AS isLogged FROM users WHERE login=? AND mdp=?");
+$stmt->bind_param("ss", $login, $mdp);
 $stmt->execute();
 $result = $stmt->get_result();
-
+//print_r($result);
+//echo("hello");
 $return_arr = array();
 
-
-
-
     while ($row = mysqli_fetch_assoc($result)) {
-    $row_array['id'] = $row['id'];
-    $row_array['titre'] = $row['titre'];
-    $row_array['question'] = $row['question'];
-    $row_array['bdd_enonce'] = $row['bdd_enonce'];
-    $row_array['exoNb'] = $row['exoNb'];
-    $row_array['exoLvl'] = $row['exoLvl'];
+    $row_array['isLogged'] = $row['isLogged'];
 
     array_push($return_arr,$row_array);
    }
@@ -78,6 +58,12 @@ mysqli_close($base);
   echo "MySQLi Error Code: " . $e->getCode() . "<br />";
   echo "Exception Msg: " . $e->getMessage();
   exit(); // exit and close connection.
+}
+
+
+}
+else{
+  
 }
 
 

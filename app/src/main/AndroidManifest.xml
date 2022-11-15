@@ -17,6 +17,23 @@
         android:theme="@style/Theme.Mvvv"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
+        <activity
+            android:name=".PageOnceEnonce"
+            />
+        <activity
+        android:name=".MainActivity"
+        />
+        <activity
+            android:name=".PageLogin"
+            />
+        <activity
+            android:name=".PageCreateAccount"
+            />
+
+        <activity
+            android:name=".PageExerciceList"
+            />
         <activity
             android:name=".SplashScreenActivity"
             android:exported="true">
@@ -30,13 +47,8 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity android:name=".PageExerciceList" />
-        <activity android:name=".PageOnceEnonce" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
 
-        </activity>
+
     </application>
 
 </manifest>

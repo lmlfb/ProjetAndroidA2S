@@ -7,13 +7,18 @@
         <entry key="..\:/Users/lmlef/AndroidStudioProjects/Mvvv/app/src/main/res/layout/exo_list.xml" value="0.11503623188405797" />
         <entry key="..\:/Users/lmlef/AndroidStudioProjects/Mvvv/app/src/main/res/layout/level_list.xml" value="0.1634963768115942" />
         <entry key="..\:/Users/lmlef/AndroidStudioProjects/Mvvv/app/src/main/res/layout/lvl_list.xml" value="0.11503623188405797" />
+        <entry key="..\:/Users/lmlef/Documents/PROJET/A2S_Github_SKOOL/ProjetAndroidA2S/app/src/main/res/layout/create_account.xml" value="0.176" />
+        <entry key="..\:/Users/lmlef/Documents/PROJET/A2S_Github_SKOOL/ProjetAndroidA2S/app/src/main/res/layout/exo_list.xml" value="0.146875" />
+        <entry key="..\:/Users/lmlef/Documents/PROJET/A2S_Github_SKOOL/ProjetAndroidA2S/app/src/main/res/layout/level_list.xml" value="0.146875" />
+        <entry key="..\:/Users/lmlef/Documents/PROJET/A2S_Github_SKOOL/ProjetAndroidA2S/app/src/main/res/layout/login.xml" value="0.146875" />
+        <entry key="..\:/Users/lmlef/Documents/PROJET/A2S_Github_SKOOL/ProjetAndroidA2S/app/src/main/res/layout/one_exercice.xml" value="0.146875" />
         <entry key="..\:/Users/lmlef/Documents/PROJET/ProjetAndroidA2S/Mvvv/app/src/main/res/layout/exo_list.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/lmlef/Documents/PROJET/ProjetAndroidA2S/Mvvv/app/src/main/res/layout/level_list.xml" value="0.19067028985507245" />
         <entry key="..\:/Users/lmlef/Documents/PROJET/ProjetAndroidA2S/Mvvv/app/src/main/res/layout/one_exercice.xml" value="0.264" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
