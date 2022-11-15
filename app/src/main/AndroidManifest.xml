@@ -26,7 +26,10 @@
             android:name=".PageOnceEnonce"
             />
         <activity
-            android:name=".MainActivity"
+        android:name=".MainActivity"
+        />
+        <activity
+            android:name=".PageLogin"
             android:exported="true">
 
             <intent-filter>
