@@ -4,12 +4,8 @@ package com.a2s.mvvv;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,13 +27,22 @@ public class PageLogin extends AppCompatActivity {
         TextView mdp = findViewById(R.id.loginmdp);
         Button loginOK = findViewById(R.id.loginOk);
 
+
         loginOK.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                System.out.println("testing login");
                 getIsGoodLogin(login.getText().toString(), mdp.getText().toString());
             }
         });
+        Button createAccount = findViewById(R.id.login_create_account);
+        createAccount.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent i = new Intent(getApplicationContext(), PageCreateAccount.class);
+                startActivity(i);
+            }
+        });
+
 
 
     }

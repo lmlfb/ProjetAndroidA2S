@@ -32,10 +32,6 @@ $password = "MWcYrxMarR9vdU9NGmf";
 $dbname = "apiapkslm";
 
 
-
-
-
-
 $base  = new mysqli($servername, $username, $password, $dbname);
 $stmt = $base->prepare("SELECT COUNT(id) AS isLogged FROM users WHERE login=? AND mdp=?");
 $stmt->bind_param("ss", $login, $mdp);

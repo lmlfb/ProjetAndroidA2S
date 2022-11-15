@@ -28,6 +28,10 @@
         <activity
         android:name=".MainActivity"
         />
+
+        <activity
+            android:name=".PageCreateAccount"
+            />
         <activity
             android:name=".PageLogin"
             android:exported="true">
