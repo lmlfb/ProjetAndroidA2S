@@ -26,9 +26,11 @@
         />
         <activity
             android:name=".PageLogin"
+            android:theme="@style/Theme.Mvvv.NoActionBarAndStatusBar"
             />
         <activity
             android:name=".PageCreateAccount"
+            android:theme="@style/Theme.Mvvv.NoActionBarAndStatusBar"
             />
 
         <activity
@@ -36,7 +38,9 @@
             />
         <activity
             android:name=".SplashScreenActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.Mvvv.NoActionBarAndStatusBar">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
