@@ -30,17 +30,6 @@ public class PageLogin extends AppCompatActivity {
         TextView mdp = findViewById(R.id.loginmdp);
         TextView loginOK = findViewById(R.id.loginOk);
 
-        this.forgotpassword = (TextView) findViewById(R.id.forgotpassword);
-
-        forgotpassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent forgotpasswordactivity = new Intent(getApplicationContext(),Forgotpassword.class);
-                startActivity(forgotpasswordactivity);
-                finish();
-            }
-        });
-
         loginOK.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -79,6 +68,18 @@ public class PageLogin extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<Login>> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        this.forgotpassword = (TextView) findViewById(R.id.forgotpassword);
+
+        forgotpassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent forgotpasswordactivity = new Intent(getApplicationContext(),Forgotpassword.class);
+                startActivity(forgotpasswordactivity);
+                finish();
             }
         });
     }
