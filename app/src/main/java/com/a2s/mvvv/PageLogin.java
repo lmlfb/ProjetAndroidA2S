@@ -5,6 +5,10 @@ package com.a2s.mvvv;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,7 +34,22 @@ public class PageLogin extends AppCompatActivity {
         loginOK.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                getIsGoodLogin(login.getText().toString(), mdp.getText().toString());
+
+                try {
+                    InputMethodManager imm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+                } catch (Exception e) {
+                    // TODO: handle exception
+                }
+
+                LinearLayout layout = findViewById(R.id.signInLayout);
+                ProgressBar progressBar = new ProgressBar(PageLogin.this, null, android.R.attr.progressBarStyleLarge);
+                RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(150, 150);
+                params.addRule(RelativeLayout.CENTER_HORIZONTAL);
+                layout.addView(progressBar, params);
+                progressBar.setVisibility(View.VISIBLE);
+
+                getIsGoodLogin(login.getText().toString(), mdp.getText().toString(), progressBar);
             }
         });
         TextView createAccount = findViewById(R.id.login_create_account);
@@ -53,28 +72,27 @@ public class PageLogin extends AppCompatActivity {
         });
 
     }
-    private void getIsGoodLogin(String login, String mdp) {
+    private void getIsGoodLogin(String login, String mdp, ProgressBar progressBar) {
         Call<List<Login>> call = RetrofitClient.getInstance().getMyApi().TryLogin(login, mdp);
         call.enqueue(new Callback<List<Login>>() {
             @Override
             public void onResponse(Call<List<Login>> call, Response<List<Login>> response) {
+                progressBar.setVisibility(View.INVISIBLE);
                 List<Login> Enoncelist = response.body();
                 System.out.println(Enoncelist.get(0).isLogged);
-
                 if(Enoncelist.get(0).isLogged == 1){
-                    Toast.makeText(getApplicationContext(), "login good", Toast.LENGTH_SHORT).show();
-
+                    Toast.makeText(getApplicationContext(), "Welcome back "+login+" !", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(i);
                 }
                 else{
-                    Toast.makeText(getApplicationContext(), "bad login", Toast.LENGTH_SHORT).show();
-
+                    Toast.makeText(getApplicationContext(), "Bad password", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
             public void onFailure(Call<List<Login>> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                progressBar.setVisibility(View.INVISIBLE);
+                Toast.makeText(getApplicationContext(), "Network Error", Toast.LENGTH_SHORT).show();
             }
         });
     }

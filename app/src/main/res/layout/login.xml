@@ -7,11 +7,12 @@
         android:background="@color/white">
 
     <LinearLayout
+        android:id="@+id/signInLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_marginTop="100dp"
         android:layout_marginLeft="65dp"
+        android:layout_marginTop="100dp"
         android:layout_marginRight="65dp"
         android:orientation="vertical">
 
@@ -50,7 +51,7 @@
             android:inputType="textPassword"
             android:textAlignment="textStart"
             android:textColorHint="@color/black"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -63,15 +64,15 @@
                 android:layout_height="match_parent"
                 android:text="Remember me"
                 android:textColor="@color/black"
-                android:textSize="15dp"/>
+                android:textSize="15dp" />
 
             <TextView
                 android:id="@+id/forgotpassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:gravity="center"
                 android:layout_marginTop="6dp"
+                android:gravity="center"
                 android:text="Forgot password ?"
                 android:textColor="@color/title"
                 android:textSize="15dp"
@@ -81,9 +82,9 @@
 
         <Button
             android:id="@+id/loginOk"
-            android:layout_gravity="center"
             android:layout_width="225dp"
             android:layout_height="45dp"
+            android:layout_gravity="center"
             android:layout_marginTop="35dp"
             android:backgroundTint="@color/title"
             android:text="@string/login"
@@ -93,27 +94,27 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginTop="60dp"
-            android:orientation="horizontal"
-            android:layout_gravity="center">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Don't have an account ?"
-                android:textSize="15dp"
-                android:textColor="@color/black"
                 android:layout_gravity="center"
-                />
+                android:text="Don't have an account ?"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
             <TextView
                 android:id="@+id/login_create_account"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Create"
-                android:textSize="15dp"
-                android:textColor="@color/title"
+                android:layout_gravity="center"
                 android:layout_marginLeft="5dp"
-                android:layout_gravity="center"/>
+                android:text="Create"
+                android:textColor="@color/title"
+                android:textSize="15dp" />
         </LinearLayout>
     </LinearLayout>
 
