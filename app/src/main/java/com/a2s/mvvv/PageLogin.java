@@ -5,7 +5,6 @@ package com.a2s.mvvv;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,15 +17,15 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class PageLogin extends AppCompatActivity {
-
+    private TextView forgotpassword;
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
-        TextView login = findViewById(R.id.loginUserName);
-        TextView mdp = findViewById(R.id.loginmdp);
-        Button loginOK = findViewById(R.id.loginOk);
-
+        TextView login = findViewById(R.id.newUserName);
+        TextView mdp = findViewById(R.id.new_mdp);
+        TextView loginOK = findViewById(R.id.loginOk);
 
         loginOK.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -34,7 +33,7 @@ public class PageLogin extends AppCompatActivity {
                 getIsGoodLogin(login.getText().toString(), mdp.getText().toString());
             }
         });
-        Button createAccount = findViewById(R.id.login_create_account);
+        TextView createAccount = findViewById(R.id.login_create_account);
         createAccount.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -42,8 +41,16 @@ public class PageLogin extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        this.forgotpassword = (TextView) findViewById(R.id.forgotpassword);
 
-
+        forgotpassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent forgotpasswordactivity = new Intent(getApplicationContext(),Forgotpassword.class);
+                startActivity(forgotpasswordactivity);
+                finish();
+            }
+        });
 
     }
     private void getIsGoodLogin(String login, String mdp) {
