@@ -16,10 +16,18 @@
         android:layout_marginRight="65dp"
         android:orientation="vertical">
 
+        <ImageView
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/logoapp2" />/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="20dp"
             android:text="Sign In"
             android:textColor="@color/title"
             android:textSize="35dp"
@@ -85,7 +93,7 @@
             android:layout_width="225dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="45dp"
             android:backgroundTint="@color/title"
             android:text="@string/login"
             android:textColor="@color/white"
