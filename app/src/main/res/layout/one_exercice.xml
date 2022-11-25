@@ -61,4 +61,14 @@
         app:layout_constraintVertical_bias="0.584"
         app:srcCompat="@drawable/voiture_tab" />
 
+    <ImageView
+        android:id="@+id/one_exo_validation_state"
+        android:layout_width="89dp"
+        android:layout_height="89dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/still_not_validated" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

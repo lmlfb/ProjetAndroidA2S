@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -34,13 +35,13 @@ public class PageOnceEnonce extends AppCompatActivity {
         TextView exo_titre = findViewById(R.id.exo_titre);
         TextView exo_question = findViewById(R.id.exo_question);
         EditText editTextResponse = findViewById(R.id.editTextResponse);
-
+        ImageView one_exo_validation_state = findViewById(R.id.one_exo_validation_state);
         Button button_exo_confirm = findViewById(R.id.button_exo_confirm);
-        getEnonce(exo_titre, selectedExoLvl, exo_question, button_exo_confirm, editTextResponse);
+        getEnonce(exo_titre, selectedExoLvl, exo_question, button_exo_confirm, editTextResponse, one_exo_validation_state);
 
     }
 
-    private void getEnonce(TextView exo_titre, int selectedExoLvl, TextView exo_question, Button button_exo_confirm, EditText editTextResponse) {
+    private void getEnonce(TextView exo_titre, int selectedExoLvl, TextView exo_question, Button button_exo_confirm, EditText editTextResponse,ImageView one_exo_validation_state) {
         Call<List<Enonce>> call = RetrofitClient.getInstance().getMyApi().getSelectedLvlById(selectedExoLvl);
         call.enqueue(new Callback<List<Enonce>>() {
             @Override
@@ -57,6 +58,10 @@ public class PageOnceEnonce extends AppCompatActivity {
                         String st1 = Enoncelist.get(0).getReponse();
                         String st2 = editTextResponse.getText().toString();
                         if(st1.equals(st2)){
+                            one_exo_validation_state.setImageResource(R.drawable.validated);
+                            System.out.println("##############");
+                            //RetrofitClient.getInstance().getMyApi().validateExo(Enoncelist.get(0).getId(),Login.idStatic);
+                            validateExercice();
                             Toast.makeText(getApplicationContext(), "ok done", Toast.LENGTH_SHORT).show();
                         }
                         else{
@@ -69,6 +74,20 @@ public class PageOnceEnonce extends AppCompatActivity {
   }
             @Override
             public void onFailure(Call<List<Enonce>> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void validateExercice() {
+        Call<Void> call = RetrofitClient.getInstance().getMyApi().validateExo(3,19);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                Toast.makeText(getApplicationContext(), "INSERE", Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });

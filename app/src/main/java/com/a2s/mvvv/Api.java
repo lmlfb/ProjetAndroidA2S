@@ -35,4 +35,8 @@ public interface Api {
     @POST("create_user.php")
     Call<List<UserCreated>> AddUser(@Field("login") String login, @Field("mdp") String mdp);
 
+    @GET("sav_progression.php")
+    Call<Void>  validateExo(@Query("idExo") int idExo, @Query("idUser") int idUser);
+
+
 }

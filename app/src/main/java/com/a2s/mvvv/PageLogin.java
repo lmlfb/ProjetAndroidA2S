@@ -81,6 +81,7 @@ public class PageLogin extends AppCompatActivity {
                 List<Login> Enoncelist = response.body();
                 System.out.println(Enoncelist.get(0).isLogged);
                 if(Enoncelist.get(0).isLogged == 1){
+                    Login.idStatic = Enoncelist.get(0).getId();
                     Toast.makeText(getApplicationContext(), "Welcome back "+login+" !", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(i);

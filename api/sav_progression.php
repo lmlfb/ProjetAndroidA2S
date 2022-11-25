@@ -3,14 +3,15 @@
 //error_reporting(E_ALL);
 
 
-$login = "default";
-$mdp = "default";
-if (isset($_POST["login"]) && isset($_POST["mdp"]) ) {
-  $login = $_POST["login"];
-  $mdp = $_POST["mdp"];
-
+$idExo = "default";
+$idUser = "default";
+if (isset($_GET["idExo"]) && isset($_GET["idUser"]) ) {
+  $idExo = $_GET["idExo"];
+  $idUser = $_GET["idUser"];
 
 try {
+
+  echo "i am in...";
 function utf8ize($d) {
   if (is_array($d)) 
       foreach ($d as $k => $v) 
@@ -31,28 +32,15 @@ $username = "apiapkslm";
 $password = "MWcYrxMarR9vdU9NGmf";
 $dbname = "apiapkslm";
 
-
-
-
-
-
 $base  = new mysqli($servername, $username, $password, $dbname);
-$stmt = $base->prepare("SELECT COUNT(id) AS isLogged, id FROM users WHERE login=? AND mdp=?");
-$stmt->bind_param("ss", $login, $mdp);
-$stmt->execute();
-$result = $stmt->get_result();
-//print_r($result);
-//echo("hello");
-$return_arr = array();
 
-    while ($row = mysqli_fetch_assoc($result)) {
-    $row_array['isLogged'] = $row['isLogged'];
-    $row_array['id'] = $row['id'];
-    array_push($return_arr,$row_array);
-   }
- 
- echo json_encode(utf8ize($return_arr));
+
+$stmt = $base->prepare("INSERT INTO validation_exo (idExo, idUser) VALUES (?, ?);");
+$stmt->bind_param("ss", $idExo,  $idUser);
+$stmt->execute();
+
 mysqli_close($base);
+
 
 } catch (mysqli_sql_exception $e) { // Failed to connect? Lets see the exception details..
   echo "MySQLi Error Code: " . $e->getCode() . "<br />";
