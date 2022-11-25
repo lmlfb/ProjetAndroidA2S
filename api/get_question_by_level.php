@@ -67,6 +67,7 @@ $return_arr = array();
       $row_array['array'] = $row['array'];
       $row_array['exoNb'] = $row['exoNb'];
       $row_array['exoLvl'] = $row['exoLvl'];
+      $row_array['reponse'] = $row['reponse'];
 
     array_push($return_arr,$row_array);
    }

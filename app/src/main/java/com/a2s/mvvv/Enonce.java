@@ -10,16 +10,25 @@ public class Enonce implements Serializable {
         private String bdd_enonce;
         private Integer exoNb;
         private Integer exoLvl;
+        private String reponse;
 
-        Enonce(Integer id, String titre, String question, String bdd_enonce, Integer exoNb, Integer exoLvl) {
+        Enonce(Integer id, String titre, String question, String bdd_enonce, Integer exoNb, Integer exoLvl, String reponse) {
             this.id=id;
             this.titre=titre;
             this.question=question;
             this.bdd_enonce=bdd_enonce;
             this.exoNb=exoNb;
             this.exoLvl=exoLvl;
+            this.reponse=reponse;
         }
 
+
+        public String getReponse() {
+        return reponse;
+        }
+        public void setReponse(String reponse) {
+        this.reponse = reponse;
+        }
         public Integer getId() {
             return this.id;
         }

@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_exo_confirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="36dp"
@@ -25,19 +25,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TableLayout
-        android:id="@+id/table_exo"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="200dp"
-        android:layout_weight="1"
-        android:stretchColumns="1"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/exo_question"
         android:layout_width="wrap_content"
@@ -50,17 +37,28 @@
         app:layout_constraintTop_toBottomOf="@+id/exo_titre" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="355dp"
-        android:layout_height="189dp"
+        android:id="@+id/editTextResponse"
+        android:layout_width="333dp"
+        android:layout_height="56dp"
         android:backgroundTint="#00FFFFFF"
         android:ems="10"
         android:hint="Réponse"
         android:inputType="textMultiLine"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/button_exo_confirm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/exo_question"
         app:layout_constraintVertical_bias="0.877" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="411dp"
+        android:layout_height="369dp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextResponse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exo_titre"
+        app:layout_constraintVertical_bias="0.584"
+        app:srcCompat="@drawable/voiture_tab" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
