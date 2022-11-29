@@ -3,6 +3,7 @@ package com.a2s.mvvv;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -72,6 +73,8 @@ public class PageLogin extends AppCompatActivity {
         });
 
     }
+
+
     private void getIsGoodLogin(String login, String mdp, ProgressBar progressBar) {
         Call<List<Login>> call = RetrofitClient.getInstance().getMyApi().TryLogin(login, mdp);
         call.enqueue(new Callback<List<Login>>() {
@@ -81,7 +84,13 @@ public class PageLogin extends AppCompatActivity {
                 List<Login> Enoncelist = response.body();
                 System.out.println(Enoncelist.get(0).isLogged);
                 if(Enoncelist.get(0).isLogged == 1){
-                    Login.idStatic = Enoncelist.get(0).getId();
+
+                    SharedPreferences sharedPreferences = getSharedPreferences("save",MODE_PRIVATE);
+                    SharedPreferences.Editor myEdit = sharedPreferences.edit();
+                    System.out.println("\n--------------------------\n"+Enoncelist.get(0).getid_user()+"\n--------------------------\n");
+                    myEdit.putInt("id", Enoncelist.get(0).getid_user());
+                    myEdit.commit();
+
                     Toast.makeText(getApplicationContext(), "Welcome back "+login+" !", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(i);

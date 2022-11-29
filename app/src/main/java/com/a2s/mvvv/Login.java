@@ -3,12 +3,11 @@ package com.a2s.mvvv;
 public class Login {
 
     int isLogged;
-    int id;
+    int id_user;
 
-    static int idStatic;
-
-    Login(int isLogged){
+    Login(int isLogged, int id_user){
         this.isLogged = isLogged;
+        this.id_user = id_user;
     }
 
     int getIsLogin(){
@@ -19,11 +18,11 @@ public class Login {
         this.isLogged = isLogged;
     }
 
-    int getId(){
-        return  id;
+    int getid_user(){
+        return  id_user;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    void setId(int id) {
+        this.id_user = id;
     }
 }

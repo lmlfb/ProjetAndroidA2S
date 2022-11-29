@@ -47,7 +47,7 @@ $return_arr = array();
 
     while ($row = mysqli_fetch_assoc($result)) {
     $row_array['isLogged'] = $row['isLogged'];
-    $row_array['id'] = $row['id'];
+    $row_array['id_user'] = $row['id'];
     array_push($return_arr,$row_array);
    }
  

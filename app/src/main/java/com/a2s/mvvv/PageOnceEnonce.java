@@ -1,6 +1,8 @@
 package com.a2s.mvvv;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -31,6 +33,14 @@ public class PageOnceEnonce extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.one_exercice);
         Intent intent = getIntent();
+
+        SharedPreferences sh = getSharedPreferences("save", Context.MODE_PRIVATE);
+
+
+        int a = sh.getInt("id", -1);
+            Toast.makeText(getApplicationContext(), String.valueOf(a), Toast.LENGTH_SHORT).show();
+
+
         int selectedExoLvl = Integer.valueOf(intent.getStringExtra("selected"));
         TextView exo_titre = findViewById(R.id.exo_titre);
         TextView exo_question = findViewById(R.id.exo_question);
