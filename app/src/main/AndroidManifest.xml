@@ -18,6 +18,13 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".one_chapitre"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Forgotpassword"
             android:exported="false"
             android:theme="@style/Theme.Mvvv.NoActionBarAndStatusBar">
@@ -48,9 +55,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity android:name=".menu_app">
-
-        </activity>
+        <activity android:name=".menu_app"></activity>
     </application>
 
 </manifest>
