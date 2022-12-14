@@ -74,18 +74,6 @@
                 android:textColor="@color/black"
                 android:textSize="15dp" />
 
-            <TextView
-                android:id="@+id/forgotpassword"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="6dp"
-                android:gravity="center"
-                android:text="Forgot password ?"
-                android:textColor="@color/title"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
         </RelativeLayout>
 
         <Button

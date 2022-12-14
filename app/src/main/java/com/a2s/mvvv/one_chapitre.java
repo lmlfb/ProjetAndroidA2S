@@ -29,7 +29,19 @@ public class one_chapitre extends AppCompatActivity {
         TextView resume  = findViewById(R.id.resume);
         TextView cours  = findViewById(R.id.cours);
 
-        getLevels(TitleCours, resume, cours);
+        Intent intent = getIntent();
+
+
+        String titreContent = intent.getStringExtra("titre");
+        String resumeContent = intent.getStringExtra("resume");
+        String coursContent = intent.getStringExtra("cours");
+
+        TitleCours.setText(titreContent);
+        resume.setText(resumeContent);
+        cours.setText(coursContent);
+        cours.setMovementMethod(new ScrollingMovementMethod());
+
+
     }
 
 

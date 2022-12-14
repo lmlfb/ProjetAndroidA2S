@@ -48,20 +48,6 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/emailUser"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/custom_input"
-            android:drawableStart="@drawable/custom_email_icon"
-            android:drawablePadding="5sp"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:textAlignment="textStart"
-            android:textColorHint="@color/black"
-            android:textSize="20sp" />
-
-        <EditText
             android:id="@+id/new_mdp"
             android:layout_width="match_parent"
             android:layout_height="45dp"

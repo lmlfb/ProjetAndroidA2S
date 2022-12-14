@@ -61,16 +61,7 @@ public class PageLogin extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        this.forgotpassword = (TextView) findViewById(R.id.forgotpassword);
 
-        forgotpassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent forgotpasswordactivity = new Intent(getApplicationContext(),Forgotpassword.class);
-                startActivity(forgotpasswordactivity);
-                finish();
-            }
-        });
 
     }
 

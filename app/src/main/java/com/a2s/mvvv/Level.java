@@ -5,7 +5,6 @@ public class Level {
     private Integer exoLvl;
     private String titre;
 
-
     Level(Integer exoLvl, String titre) {
         this.exoLvl=exoLvl;
         this.titre=titre;

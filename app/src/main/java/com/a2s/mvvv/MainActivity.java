@@ -33,7 +33,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
 
+        startActivity(new Intent(MainActivity.this,menu_app.class));
+
+    }
 
     private void getLevels(ListView listView) {
         Call<List<Level>> call = RetrofitClient.getInstance().getMyApi().getAllLevel();

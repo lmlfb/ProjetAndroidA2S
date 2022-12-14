@@ -30,9 +30,12 @@ public class PageChapitreList extends AppCompatActivity {
         getLevels(mylistView);
 
     }
+    @Override
+    public void onBackPressed() {
 
+        startActivity(new Intent(PageChapitreList.this,menu_app.class));
 
-
+    }
     private void getLevels(ListView listView) {
         Call<List<Cours>> call = RetrofitClient.getInstance().getMyApi().getAllCours();
         call.enqueue(new Callback<List<Cours>>() {
@@ -50,7 +53,10 @@ public class PageChapitreList extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         //Toast.makeText(getApplicationContext(), "position" + String.valueOf(id), Toast.LENGTH_SHORT).show();
                         Intent myIntent = new Intent(view.getContext(), one_chapitre.class);
-                       // myIntent.putExtra("selectedExoLvl",String.valueOf(LevelList.get(position).getTitre()));
+                        myIntent.putExtra("titre",String.valueOf(LevelList.get(position).getTitre()));
+                        myIntent.putExtra("resume",String.valueOf(LevelList.get(position).getResume()));
+                        myIntent.putExtra("cours",String.valueOf(LevelList.get(position).getCours()));
+
                         startActivity(myIntent);
                     }
                 });

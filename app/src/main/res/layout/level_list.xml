@@ -11,16 +11,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <TextView
             android:id="@+id/titleLevel"
             android:layout_width="350dp"
             android:layout_height="50dp"
-            android:layout_marginTop="25dp"
             android:layout_gravity="center"
-            android:text="Liste des exercices"
+            android:layout_marginTop="25dp"
+            android:text="Liste des niveaux"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="32dp"/>
+            android:textSize="32dp" />
 
         <ListView
             android:id="@+id/listViewLevel"
