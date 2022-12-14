@@ -24,6 +24,9 @@ public interface Api {
     @GET("get_all_level.php")
     Call<List<Level>> getAllLevel();
 
+    @GET("get_all_cours.php")
+    Call<List<Cours>> getAllCours();
+
     @GET("get_all_car.php")
     Call<List<voiture>> getCars();
 
@@ -37,6 +40,7 @@ public interface Api {
 
     @GET("sav_progression.php")
     Call<Void>  validateExo(@Query("idExo") int idExo, @Query("idUser") int idUser);
+
 
 
 }

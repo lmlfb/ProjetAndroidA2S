@@ -92,7 +92,7 @@ public class PageLogin extends AppCompatActivity {
                     myEdit.commit();
 
                     Toast.makeText(getApplicationContext(), "Welcome back "+login+" !", Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                    Intent i = new Intent(getApplicationContext(), menu_app.class);
                     startActivity(i);
                 }
                 else{

@@ -34,6 +34,7 @@
         </activity>
         <activity android:name=".PageOnceEnonce" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".PageChapitreList" />
         <activity
             android:name=".PageLogin"
             android:theme="@style/Theme.Mvvv.NoActionBarAndStatusBar" />
